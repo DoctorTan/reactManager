@@ -3,43 +3,20 @@ import { Breadcrumb, Layout, Menu } from 'antd';
 import { Outlet, useNavigate } from "react-router-dom";
 import React from 'react';
 import type { MenuProps } from 'antd';
+import AsiderMenu from '@/components/AsiderMenu'
 const { Header, Content, Footer, Sider } = Layout;
 
-type MenuItem = Required<MenuProps>['items'][number];
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
-  type?: 'group',
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  } as MenuItem;
-}
-const items: MenuItem[] = [
-  getItem('主页', '/page1', <UploadOutlined />),
-  getItem('page2', '/page2', <UploadOutlined />),
-  getItem('关于', '/about', <UploadOutlined />),
 
-];
+
 const App: React.FC = () => {
-  const navigate = useNavigate();
-  //处理菜单点击
-  function handleMenuClick(e: { key: string }) {
-    // console.log(e.key);
 
-    navigate(e.key)
-  }
+
   return (
 
     <Layout>
-      {/* 左边的 */}
+      {/* 左边的 哈哈*/}
       <Sider
+
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={broken => {
@@ -50,13 +27,7 @@ const App: React.FC = () => {
         }}
       >
         <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['4']}
-          items={items}
-          onClick={(e) => handleMenuClick(e)}
-        />
+        <AsiderMenu />
 
       </Sider>
       <Layout>

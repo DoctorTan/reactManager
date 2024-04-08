@@ -4,6 +4,7 @@ import React, { lazy } from 'react'
 import Home from '@/views/Home'
 import Page1 from '@/views/Page1'
 import Page2 from '@/views/Page2'
+import Page301 from '@/views/Page301'
 
 const About = lazy(() => import('../views/About'))
 // const Home = lazy(() => import('../views/Home'))
@@ -34,10 +35,20 @@ export default createBrowserRouter([
       {
         path: "/page1",
         element: <Page1></Page1>
-      }, {
+      },
+      {
         path: "/page2",
         element: <Page2></Page2>
-      }]
+      },
+      {
+        path: "/page3/page301",
+        element: <Page301></Page301>
+      }
+    ]
 
   },
+  {
+    path: '*',
+    element: <Navigate to='/'></Navigate>
+  }
 ])
